@@ -1,7 +1,8 @@
-import logo from './logo.svg';
-import './App.css';
+import "../App.css";
 import { useState, useEffect } from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
+import Navbar from "./Navbar";
+import Home from "./Home";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -15,7 +16,11 @@ function App() {
   return (
     <BrowserRouter>
       <div className="App">
+        <Navbar />
         <Switch>
+          <Route path="/home">
+            <Home />
+          </Route>
           <Route path="/testing">
             <h1>Test Route</h1>
           </Route>
