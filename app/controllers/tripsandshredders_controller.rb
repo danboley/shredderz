@@ -1,2 +1,0 @@
-class TripsandshreddersController < ApplicationController
-end

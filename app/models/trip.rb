@@ -1,6 +1,7 @@
 class Trip < ApplicationRecord
-  has_and_belongs_to_many :shredders
   has_many :accommodations
   has_many :resorts
   has_many :awards
+  has_many :attends
+  has_many :shredders, through: :attends
 end

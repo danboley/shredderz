@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_25_165344) do
+ActiveRecord::Schema[7.0].define(version: 2023_01_26_191637) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -24,6 +24,16 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_25_165344) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["trip_id"], name: "index_accommodations_on_trip_id"
+  end
+
+  create_table "attends", force: :cascade do |t|
+    t.bigint "shredder_id", null: false
+    t.bigint "trip_id", null: false
+    t.boolean "present"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["shredder_id"], name: "index_attends_on_shredder_id"
+    t.index ["trip_id"], name: "index_attends_on_trip_id"
   end
 
   create_table "awards", force: :cascade do |t|
@@ -86,20 +96,11 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_25_165344) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "tripsandshredders", force: :cascade do |t|
-    t.bigint "trip_id", null: false
-    t.bigint "shredder_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["shredder_id"], name: "index_tripsandshredders_on_shredder_id"
-    t.index ["trip_id"], name: "index_tripsandshredders_on_trip_id"
-  end
-
   add_foreign_key "accommodations", "trips"
+  add_foreign_key "attends", "shredders"
+  add_foreign_key "attends", "trips"
   add_foreign_key "awards", "shredders"
   add_foreign_key "awards", "trips"
   add_foreign_key "gears", "shredders"
   add_foreign_key "resorts", "trips"
-  add_foreign_key "tripsandshredders", "shredders"
-  add_foreign_key "tripsandshredders", "trips"
 end
