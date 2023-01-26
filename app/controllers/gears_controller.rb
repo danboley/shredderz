@@ -22,7 +22,7 @@ class GearsController < ApplicationController
 
   private
 
-  def find_awa
+  def find_gear
     Gear.find(params[:id])
   end
 
