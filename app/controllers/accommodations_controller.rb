@@ -27,6 +27,6 @@ class AccommodationsController < ApplicationController
   end
 
   def acc_params
-    params.permit(:id, :name, :description, :address, :link, :pic, :trip_id)
+    params.permit(:name, :description, :address, :link, :pic, :trip_id)
   end
 end

@@ -6,20 +6,30 @@ import Home from "./Home";
 import ShreddersPage from "./ShreddersPage";
 import TripsPage from "./TripsPage";
 import AwardsPage from "./AwardsPage";
+import ShredderDetailPage from "./ShredderDetailPage";
+import TripDetailPage from "./TripDetailPage";
 
 function App() {
   const [count, setCount] = useState(0);
+  const [shredders, setShredders] = useState([])
+  const [trips, setTrips] = useState([])
 
   useEffect(() => {
     fetch("/hello")
-      .then((r) => r.json())
+      .then((res) => res.json())
       .then((data) => setCount(data.count));
   }, []);
 
   useEffect(() => {
     fetch("/shredders")
     .then((r) => r.json())
-    .then((data) => console.log(data));
+    .then((data) => setShredders(data));
+  }, []);
+
+  useEffect(() => {
+    fetch("/trips")
+    .then((r) => r.json())
+    .then((data) => setTrips(data));
   }, []);
 
   return (
@@ -35,10 +45,16 @@ function App() {
             <h1>Test Route</h1>
           </Route>
           <Route path="/shredderz">
-            <ShreddersPage />
+            <ShreddersPage shredders={shredders}/>
+          </Route>
+          <Route path="/shredder/:id">
+            <ShredderDetailPage />
           </Route>
           <Route path="/trips">
-            <TripsPage />
+            <TripsPage trips={trips}/>
+          </Route>
+          <Route path="/trip/:id">
+            <TripDetailPage />
           </Route>
           <Route path="/awards">
             <AwardsPage />

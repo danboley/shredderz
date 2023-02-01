@@ -27,6 +27,6 @@ class AttendsController < ApplicationController
   end
 
   def attend_params
-    params.permit(:id, :shredder_id, :trip_id, :present)
+    params.permit(:shredder_id, :trip_id, :present)
   end
 end

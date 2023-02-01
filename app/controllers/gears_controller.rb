@@ -27,6 +27,6 @@ class GearsController < ApplicationController
   end
 
   def gear_params
-    params.permit(:id, :year, :brand, :model, :specs, :pic, :shredder_id)
+    params.permit(:year, :brand, :model, :specs, :pic, :shredder_id)
   end
 end

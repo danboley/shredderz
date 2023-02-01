@@ -27,6 +27,6 @@ class TripsController < ApplicationController
   end
 
   def trip_params
-    params.permit(:id, :name, :year, :location, :hashtag, :slogan, :song, :bracket)
+    params.permit(:name, :year, :location, :hashtag, :slogan, :song, :bracket)
   end
 end

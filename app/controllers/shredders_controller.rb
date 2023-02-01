@@ -27,6 +27,6 @@ class ShreddersController < ApplicationController
   end
 
   def shred_params
-    params.permit(:id, :name, :nickname, :dob, :kind, :pic)
+    params.permit(:name, :nickname, :dob, :kind, :pic)
   end
 end

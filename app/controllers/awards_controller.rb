@@ -27,6 +27,6 @@ class AwardsController < ApplicationController
   end
 
   def award_params
-    params.permit(:id, :name, :description, :trip_id, :shredder_id)
+    params.permit(:name, :description, :trip_id, :shredder_id)
   end
 end

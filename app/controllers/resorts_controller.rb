@@ -27,6 +27,6 @@ class ResortsController < ApplicationController
   end
 
   def res_params
-    params.permit(:id, :name, :map, :top_ele, :base_ele, :vertical, :area, :runs, :pic, :trip_id)
+    params.permit(:name, :map, :top_ele, :base_ele, :vertical, :area, :runs, :pic, :trip_id)
   end
 end
