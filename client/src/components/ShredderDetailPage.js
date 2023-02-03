@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useHistory, useParams } from 'react-router-dom';
 
-function ShredderDetailPage({ shredders }) {
+function ShredderDetailPage() {
     const [shredder, setShredder] = useState("")
     const { id } = useParams();
     const history = useHistory();
@@ -13,8 +13,6 @@ function ShredderDetailPage({ shredders }) {
     }, []);
 
     const { name, nickname, kind, pic, dob, gears, trips, awards} = shredder
-
-    console.log(shredder)
 
   return (
     <div>

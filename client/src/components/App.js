@@ -8,11 +8,13 @@ import TripsPage from "./TripsPage";
 import AwardsPage from "./AwardsPage";
 import ShredderDetailPage from "./ShredderDetailPage";
 import TripDetailPage from "./TripDetailPage";
+import AwardDetailPage from "./AwardDetailPage";
 
 function App() {
   const [count, setCount] = useState(0);
   const [shredders, setShredders] = useState([])
   const [trips, setTrips] = useState([])
+  const [awards, setAwards] = useState([])
 
   useEffect(() => {
     fetch("/hello")
@@ -30,6 +32,12 @@ function App() {
     fetch("/trips")
     .then((r) => r.json())
     .then((data) => setTrips(data));
+  }, []);
+
+  useEffect(() => {
+    fetch("/awards")
+    .then((r) => r.json())
+    .then((data) => setAwards(data));
   }, []);
 
   return (
@@ -57,7 +65,10 @@ function App() {
             <TripDetailPage />
           </Route>
           <Route path="/awards">
-            <AwardsPage />
+            <AwardsPage awards={awards}/>
+          </Route>
+          <Route path="/award/:id">
+            <AwardDetailPage />
           </Route>
           <Route path="/">
             <Home />

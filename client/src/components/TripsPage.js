@@ -12,6 +12,14 @@ function TripsPage({ trips }) {
         trip = {trip}
         name = {trip.name}
         key = {trip.id}
+        year = {trip.year}
+        location = {trip.location}
+        hashtag = {trip.hashtag}
+        slogan = {trip.slogan}
+        song = {trip.song}
+        bracket = {trip.bracket}
+        shredders = {trip.shredders}
+        awards = {trip.awards}
     />
     ))
 
